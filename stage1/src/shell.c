@@ -11,7 +11,7 @@
 /**
  * print the ans register of the vcpu
  */
-void shell_print_result(cpu_state* state)
+void shell_print_state(cpu_state* state)
 {
     printf("ans=%d\n", state->ans);
 }
@@ -21,7 +21,8 @@ void shell_print_result(cpu_state* state)
  */
 int main(int argc, char *argv[])
 {
-    if (argc < 2) {
+    if (argc < 2)
+    {
         printf("usage: %s file.lst\n", argv[0]);
         exit(1);
     }
@@ -33,6 +34,6 @@ int main(int argc, char *argv[])
 
     cpu_exec(&state);
 
-    shell_print_result(&state);
+    shell_print_state(&state);
     return(0);
 }
