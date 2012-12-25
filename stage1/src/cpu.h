@@ -19,7 +19,7 @@ typedef unsigned char t_opcode;
 /**
  * type of the vcpu representation of an operation argument
  */
-typedef unsigned int t_oparg;
+typedef signed int t_oparg;
 
 /**
  * structure representing a single instruction
