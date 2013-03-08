@@ -21,8 +21,7 @@ void shell_print_state(const cpu_state *state)
  */
 int main(const int argc, const char *argv[])
 {
-    if (argc < 2)
-    {
+    if (argc < 2) {
         printf("usage: %s file.lst\n", argv[0]);
         exit(1);
     }
