@@ -15,8 +15,8 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		BBBBF69A16E9552F006885C6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 8;
+			dstPath = "";
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -146,6 +146,7 @@
 				BBBBF69816E9552F006885C6 /* Sources */,
 				BBBBF69916E9552F006885C6 /* Frameworks */,
 				BBBBF69A16E9552F006885C6 /* CopyFiles */,
+				BBBBF6B116E96DBF006885C6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -181,6 +182,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BBBBF6B116E96DBF006885C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp $TARGET_BUILD_DIR/$TARGET_NAME $PROJECT_DIR/$PRODUCT_NAME/out/shell\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BBBBF69816E9552F006885C6 /* Sources */ = {
