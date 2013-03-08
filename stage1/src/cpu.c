@@ -72,22 +72,27 @@ const char *cpu_opcode_str(const t_opcode opcode)
     return OP_TABLE[opcode].opcode_str;
 }
 
-void cpu_op_nop(cpu_state *state, const t_oparg arg1, const t_oparg arg2) {
+void cpu_op_nop(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
+{
     // do nothing
 }
 
-void cpu_op_add(cpu_state *state, const t_oparg arg1, const t_oparg arg2) {
+void cpu_op_add(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
+{
     state->ans = arg1 + arg2;
 }
 
-void cpu_op_sub(cpu_state *state, const t_oparg arg1, const t_oparg arg2) {
+void cpu_op_sub(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
+{
     state->ans = arg1 - arg2;
 }
 
-void cpu_op_mul(cpu_state *state, const t_oparg arg1, const t_oparg arg2) {
+void cpu_op_mul(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
+{
     state->ans = arg1 * arg2;
 }
 
-void cpu_op_div(cpu_state *state, const t_oparg arg1, const t_oparg arg2) {
+void cpu_op_div(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
+{
     state->ans = arg1 / arg2;
 }
