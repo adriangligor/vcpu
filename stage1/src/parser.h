@@ -12,12 +12,12 @@
 /**
  * parses an instruction from the given file
  */
-void parse_instr(char* filename, cpu_instr* instr);
+void parse_instr(const char *filename, cpu_instr *instr);
 
 /**
  * parses an instruction from the given line
  */
-void parse_instr_line(char* line, cpu_instr* instr);
+void parse_instr_line(char *line, cpu_instr *instr);
 
 
 #endif

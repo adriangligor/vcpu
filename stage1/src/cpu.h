@@ -24,8 +24,7 @@ typedef signed int t_oparg;
 /**
  * structure representing a single instruction
  */
-typedef struct cpu_instr
-{
+typedef struct cpu_instr {
     t_opcode opcode;
     t_oparg arg1;
     t_oparg arg2;
@@ -34,8 +33,7 @@ typedef struct cpu_instr
 /**
  * structure representing the whole state of the vcpu
  */
-typedef struct cpu_state
-{
+typedef struct cpu_state {
     int ans;
     cpu_instr instr;
 } cpu_state;
@@ -44,28 +42,28 @@ typedef struct cpu_state
 /**
  * reset the cpu state
  */
-void cpu_reset(cpu_state* state);
+void cpu_reset(cpu_state *state);
 
 /**
  * execute the instruction
  */
-void cpu_exec(cpu_state* state);
+void cpu_exec(cpu_state *state);
 
 /**
  * get an opcode from its string mnemonic
  */
-const t_opcode cpu_opcode(char* opcode_str);
+const t_opcode cpu_opcode(const char *opcode_str);
 
 /**
  * get the string mnemonic of an opcode
  */
-const char* cpu_opcode_str(t_opcode opcode);
+const char *cpu_opcode_str(t_opcode opcode);
 
-void cpu_op_nop(cpu_state* state, t_oparg arg1, t_oparg arg2);
-void cpu_op_add(cpu_state* state, t_oparg arg1, t_oparg arg2);
-void cpu_op_sub(cpu_state* state, t_oparg arg1, t_oparg arg2);
-void cpu_op_mul(cpu_state* state, t_oparg arg1, t_oparg arg2);
-void cpu_op_div(cpu_state* state, t_oparg arg1, t_oparg arg2);
+void cpu_op_nop(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
+void cpu_op_add(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
+void cpu_op_sub(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
+void cpu_op_mul(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
+void cpu_op_div(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
 
 
 #endif
