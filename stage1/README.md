@@ -10,7 +10,7 @@ At this stage, vcpu is able to read one of 5 instructions from a listing and exe
     MUL x y   multiplication
     DIV x y   division
 
-Each instruction operates on two constant values. The result of each operation is written to the special **ANS** register. At this stage, there is no binary representation of the instruction set. The vcpu just executes the structures parsed from the file.
+Each instruction operates on two constant values. The result of each operation is written to the special **ANS** register. At this stage, there is no binary representation of the instruction set. The vcpu is just an interpreter.
 
 ## Compilation
 

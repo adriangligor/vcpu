@@ -2,7 +2,7 @@ virtual cpu - vom arithmetischen rechner zum computer
 
 schritt für schritt rechner + instruction set entwickeln
 
-1. arithmetik prozessor mit ans register (1 operation mit immediate werten, ans printen, integer + floating point)
+1. arithmetik prozessor mit ans register (1 operation mit immediate werten, ans printen, integer)
 2. instruction list (mehrere operationen mit ans und immediate werten, ans printen)
 3. err register, critical exit (illegal conditions abfangen, err setzen, nop operation)
 4. memory register (mehrere operationen mit ans/imm/mem werten, ans printen)
@@ -13,3 +13,4 @@ schritt für schritt rechner + instruction set entwickeln
 9. stdin device (bytes einlesen können)
 10. simple language compiler (binary memory representation for instruction list, load program on boot)
 11. simple language compiler (global vars, sub: goto+labels+goto_back, arithmetic expressions), compiles to memory dump (image)
+12. floating point extension, memory extension and windowing

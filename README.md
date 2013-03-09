@@ -5,9 +5,9 @@
 * 16bit CPU
 * 16 general purpose registers Rx0 - RxF
 * 3 special registers:
+    Rx0/ACC/ANS: accumulator (aka answer, stores arithmetic results)
     PRC: program counter (next instruction address)
     FLG: flags (bitwise - carry, error, negative, zero, overflow)
-    ACC (aka ANS): accumulator (aka answer, stores arithmetic results)
 * 64k total memory, byte aligned
 * byte = 8bit, word = 16bit
 * _? byte order ?_
@@ -21,16 +21,19 @@
 ## Instruction set
 
     NOP (0x00)   1byte              no operation
-    ADD (0x01)   3byte (imm, imm)   addition with carry
-        (0x02)   3byte (reg, imm)   (?? signed/unsigned)
-        (0x03)   3byte (reg, reg)   (?? negative)
-    SUB (0x04)   3byte (imm, imm)   subtraction with carry
-        (0x05)   3byte (reg, imm)   (?? signed/unsigned)
-        (0x06)   3byte (imm, reg)   (?? overflow, negative)
-        (0x07)   3byte (reg, reg)   
-    MUL (0x08)   3byte (imm, imm)   multiplication
-        (0x08)   3byte (imm, reg)   (?? how many bits)
-        (0x09)   3byte (reg, reg)   (?? signed/unsigned, overflow)
+
+    ADD (0x01)   5byte (imm, imm)   addition with carry
+        (0x02)   4byte (reg, imm)   (?? signed/unsigned)
+        (0x03)   2byte (reg, reg)   (?? negative)
+
+    SUB (0x04)   5byte (imm, imm)   subtraction with carry
+        (0x05)   4byte (reg, imm)   (?? signed/unsigned)
+        (0x06)   4byte (imm, reg)   (?? overflow, negative)
+        (0x07)   2byte (reg, reg)   
+
+    MUL (0x08)   5byte (imm, imm)   multiplication
+        (0x08)   4byte (reg, imm)   (?? how many bits)
+        (0x09)   2byte (reg, reg)   (?? signed/unsigned, overflow)
     
     DIV (0x09)   division                   ?
     MOD (0x0A)   modulo                     ?
