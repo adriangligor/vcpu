@@ -20,6 +20,10 @@ Generates the `shell` binary used to execute listings.
 
 ## Usage
 
+    ./shell -
+
+Read instructions from stdin and execute them. The shell then prints the content of the ANS register after each successful execution.
+
     ./shell lst/calc1.lst
 
 Read the listing (really just the first instruction) and execute it. The shell then prints the content of the ANS register before exitting.
