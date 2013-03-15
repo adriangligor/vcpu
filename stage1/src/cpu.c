@@ -3,10 +3,16 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include "cpu.h"
 
+
+/**
+ * size of an opcode identifier including \0
+ */
+#define OPCODE_SZ_SIZE 4
 
 /**
  * type of a function implementing a vcpu operation
@@ -50,11 +56,13 @@ void cpu_exec(cpu_state *state)
 
 const t_opcode cpu_opcode(const char *opcode_str)
 {
+    cpu_opcode_decl op;
     int i;
+    
     for (i = 0; i < OPCODE_COUNT; i++) {
-        cpu_opcode_decl op_decl = OP_TABLE[i];
-        if (strncmp(opcode_str, op_decl.opcode_str, OPCODE_SZ_SIZE) == 0) {
-            return op_decl.opcode;
+        op = OP_TABLE[i];
+        if (strncmp(opcode_str, op.opcode_str, OPCODE_SZ_SIZE) == 0) {
+            return op.opcode;
         }
     }
 

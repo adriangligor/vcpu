@@ -11,10 +11,9 @@
 void parse_instr(const char *filename, cpu_instr *instr)
 {
     FILE *fp;
-    char *line = NULL;
-    size_t len = 0;
+    char *line;
+    size_t len;
     ssize_t read;
-    int line_nr = 1;
 
     fp = fopen(filename, "r");
     if (fp == NULL) {
@@ -23,13 +22,7 @@ void parse_instr(const char *filename, cpu_instr *instr)
     }
 
     printf("reading instruction: %s\n", filename);
-    /*
-    while ((read = getline(&line, &len, fp)) != -1) {
-        //printf("retrieved line of length %zu:\n", read);
-        printf("%d: %s", line_nr, line);
-        line_nr++;
-    }
-    */
+
     if ((read = getline(&line, &len, fp)) != -1) {
         printf("> %s", line);
         parse_instr_line(line, instr);
@@ -60,7 +53,7 @@ void parse_instr_line(char *line, cpu_instr *instr)
         exit(1);
     }
 
-    for(i = 0; tk_opcode[i] != '\0'; i++) {
+    for (i = 0; tk_opcode[i] != '\0'; i++) {
         tk_opcode[i] = toupper(tk_opcode[i]);
     }
 

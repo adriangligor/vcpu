@@ -7,11 +7,6 @@
 
 
 /**
- * size of an opcode identifier including \0
- */
-#define OPCODE_SZ_SIZE 4
-
-/**
  * type of the vcpu representation of an opcode
  */
 typedef unsigned char t_opcode;
