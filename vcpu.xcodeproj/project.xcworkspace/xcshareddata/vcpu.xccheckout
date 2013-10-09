@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>180C0DD3-82FE-4E00-916C-214A897ED96F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>vcpu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F69E1FA8-39E0-4CD1-84D5-C3EFE6BF4222</key>
+		<string>ssh://github.com/adriangligor/vcpu.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>vcpu.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F69E1FA8-39E0-4CD1-84D5-C3EFE6BF4222</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/adriangligor/vcpu.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F69E1FA8-39E0-4CD1-84D5-C3EFE6BF4222</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F69E1FA8-39E0-4CD1-84D5-C3EFE6BF4222</string>
+			<key>IDESourceControlWCCName</key>
+			<string>vcpu</string>
+		</dict>
+	</array>
+</dict>
+</plist>

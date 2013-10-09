@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BBBBF69B16E9552F006885C6"
-               BuildableName = "stage1"
-               BlueprintName = "stage1"
+               BlueprintIdentifier = "C0EA9CB016ED1A6A008C0EBF"
+               BuildableName = "stage2"
+               BlueprintName = "stage2"
                ReferencedContainer = "container:vcpu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBBBF69B16E9552F006885C6"
-            BuildableName = "stage1"
-            BlueprintName = "stage1"
+            BlueprintIdentifier = "C0EA9CB016ED1A6A008C0EBF"
+            BuildableName = "stage2"
+            BlueprintName = "stage2"
             ReferencedContainer = "container:vcpu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,15 +51,15 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBBBF69B16E9552F006885C6"
-            BuildableName = "stage1"
-            BlueprintName = "stage1"
+            BlueprintIdentifier = "C0EA9CB016ED1A6A008C0EBF"
+            BuildableName = "stage2"
+            BlueprintName = "stage2"
             ReferencedContainer = "container:vcpu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-"
+            argument = "/Users/ag/Programming/vcpu/stage2/lst/calc7.lst"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
@@ -75,9 +75,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBBBF69B16E9552F006885C6"
-            BuildableName = "stage1"
-            BlueprintName = "stage1"
+            BlueprintIdentifier = "C0EA9CB016ED1A6A008C0EBF"
+            BuildableName = "stage2"
+            BlueprintName = "stage2"
             ReferencedContainer = "container:vcpu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
