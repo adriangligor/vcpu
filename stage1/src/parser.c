@@ -11,7 +11,7 @@
 void parse_instr(const char *filename, cpu_instr *instr)
 {
     FILE *fp;
-    char *line;
+    char *line = NULL;
     size_t len;
     ssize_t read;
 
