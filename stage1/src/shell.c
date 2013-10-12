@@ -23,6 +23,7 @@ void shell_print_state(const cpu_state *state)
 void shell_file(const char *filename)
 {
     cpu_state state;
+
     cpu_reset(&state);
     
     parse_instr(filename, &state.instr);
@@ -40,9 +41,8 @@ void shell_stdin()
     cpu_state state;
     char *line = NULL;
     size_t len = 0;
-    ssize_t read;
 
-    while ((read = getline(&line, &len, stdin)) != -1) {
+    while (getline(&line, &len, stdin) != -1) {
         cpu_reset(&state);
 
         parse_instr_line(line, &state.instr);

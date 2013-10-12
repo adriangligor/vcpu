@@ -13,7 +13,6 @@ void parse_instr(const char *filename, cpu_instr *instr)
     FILE *fp;
     char *line = NULL;
     size_t len;
-    ssize_t read;
 
     fp = fopen(filename, "r");
     if (fp == NULL) {
@@ -23,7 +22,7 @@ void parse_instr(const char *filename, cpu_instr *instr)
 
     printf("reading instruction: %s\n", filename);
 
-    if ((read = getline(&line, &len, fp)) != -1) {
+    if (getline(&line, &len, fp) != -1) {
         printf("> %s", line);
         parse_instr_line(line, instr);
     }
@@ -54,7 +53,7 @@ void parse_instr_line(char *line, cpu_instr *instr)
     }
 
     for (i = 0; tk_opcode[i] != '\0'; i++) {
-        tk_opcode[i] = toupper(tk_opcode[i]);
+        tk_opcode[i] = (char) toupper(tk_opcode[i]);
     }
 
     instr->opcode = cpu_opcode(tk_opcode);

@@ -3,7 +3,6 @@
  */
 
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include "cpu.h"
@@ -80,10 +79,13 @@ const char *cpu_opcode_str(const t_opcode opcode)
     return OP_TABLE[opcode].opcode_str;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
 void cpu_op_nop(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
 {
     // do nothing
 }
+#pragma clang diagnostic pop
 
 void cpu_op_add(cpu_state *state, const t_oparg arg1, const t_oparg arg2)
 {
