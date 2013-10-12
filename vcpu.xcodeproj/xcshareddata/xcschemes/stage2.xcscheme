@@ -57,14 +57,14 @@
             ReferencedContainer = "container:vcpu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/ag/Programming/vcpu/stage2/lst/calc7.lst"
+            argument = "/Users/adriang/Programming/vcpu/stage2/lst/calc7.lst"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"

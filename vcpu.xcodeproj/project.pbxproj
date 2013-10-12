@@ -59,7 +59,8 @@
 		BBBBF68816E95225006885C6 /* test.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test.py; sourceTree = "<group>"; };
 		BBBBF68916E95225006885C6 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		BBBBF69C16E9552F006885C6 /* stage1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stage1; sourceTree = BUILT_PRODUCTS_DIR; };
-		C001207E16F00E5F005BE2FF /* calc1.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = calc1.lst; sourceTree = "<group>"; };
+		BC58B35478D6A4109F75920F /* calc7.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc7.ans; sourceTree = "<group>"; };
+		BC58BA3CDD5ED531AC160F5A /* calc7.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc7.lst; sourceTree = "<group>"; };
 		C0EA9C8316EBAD83008C0EBF /* calc1.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc1.ans; sourceTree = "<group>"; };
 		C0EA9C8416EBAD83008C0EBF /* calc1.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc1.lst; sourceTree = "<group>"; };
 		C0EA9C8516EBAD83008C0EBF /* calc2.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc2.ans; sourceTree = "<group>"; };
@@ -175,7 +176,6 @@
 		C0EA9C8116EBAD83008C0EBF /* stage2 */ = {
 			isa = PBXGroup;
 			children = (
-				C001207E16F00E5F005BE2FF /* calc1.lst */,
 				C0EA9C8216EBAD83008C0EBF /* lst */,
 				C0EA9C8F16EBAD83008C0EBF /* Makefile */,
 				C0EA9C9016EBAD83008C0EBF /* out */,
@@ -201,6 +201,8 @@
 				C0EA9C8C16EBAD83008C0EBF /* calc5.lst */,
 				C0EA9C8D16EBAD83008C0EBF /* calc6.ans */,
 				C0EA9C8E16EBAD83008C0EBF /* calc6.lst */,
+				BC58BA3CDD5ED531AC160F5A /* calc7.lst */,
+				BC58B35478D6A4109F75920F /* calc7.ans */,
 			);
 			path = lst;
 			sourceTree = "<group>";
