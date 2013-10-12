@@ -12,7 +12,7 @@
 /**
  * parses an instruction list from the given file into the state
  */
-void parse_instr_malloc(FILE *fp, cpu_state *state);
+void parse_file_malloc(FILE *fp, cpu_state *state);
 
 /**
  * parses an instruction from the given line

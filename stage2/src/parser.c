@@ -27,6 +27,38 @@ int chomp(char *str)
     return '\n';
 }
 
+void parse_file_malloc(FILE *fp, cpu_state *state)
+{
+    char *line;
+    size_t len;
+    int line_nr;
+    cpu_instr *instr;
+
+    line = NULL;
+    instr = NULL;
+    line_nr = 1;
+    while (getline(&line, &len, fp) != -1) {
+        chomp(line);
+        printf("%d: %s\n", line_nr, line);
+
+        instr = parse_line_malloc(line, state, instr);
+        if (state->instr == NULL) {
+            state->instr = instr;
+            state->instrp = instr;
+        }
+
+        line_nr++;
+    }
+
+    if (ferror(fp)) {
+        printf("error while reading\n");
+        exit(1);
+    }
+
+    free(line);
+    fclose(fp);
+}
+
 cpu_instr *parse_line_malloc(char *line, cpu_state *state, cpu_instr *prev)
 {
     char *tk_opcode;
@@ -61,38 +93,6 @@ cpu_instr *parse_line_malloc(char *line, cpu_state *state, cpu_instr *prev)
     if (prev != NULL) {
         prev->next = instr;
     }
-
+    
     return instr;
-}
-
-void parse_instr_malloc(FILE *fp, cpu_state *state)
-{
-    char *line;
-    size_t len;
-    int line_nr;
-    cpu_instr *instr;
-
-    line = NULL;
-    instr = NULL;
-    line_nr = 1;
-    while (getline(&line, &len, fp) != -1) {
-        chomp(line);
-        printf("%d: %s\n", line_nr, line);
-
-        instr = parse_line_malloc(line, state, instr);
-        if (state->instr == NULL) {
-            state->instr = instr;
-            state->instrp = instr;
-        }
-
-        line_nr++;
-    }
-
-    if (ferror(fp)) {
-        printf("error while reading\n");
-        exit(1);
-    }
-
-    free(line);
-    fclose(fp);
 }

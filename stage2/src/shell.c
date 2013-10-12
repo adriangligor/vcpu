@@ -40,7 +40,7 @@ void shell(const char *filename)
 
     cpu_reset_free(&state);
 
-    parse_instr_malloc(fp, &state);
+    parse_file_malloc(fp, &state);
     cpu_exec(&state);
     shell_print_state(&state);
     cpu_reset_free(&state);
