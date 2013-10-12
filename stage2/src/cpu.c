@@ -18,7 +18,7 @@
 /**
  * type of a function implementing a vcpu operation
  */
-typedef void (*t_opfunc)(cpu_state *, const t_oparg, const t_oparg);
+typedef void (*const t_opfunc)(cpu_state *const, const t_oparg, const t_oparg);
 
 /**
  * structure representing the definition of a vcpu operation
@@ -51,7 +51,7 @@ const cpu_opcode_decl OP_TABLE[] = {
 const int OPCODE_COUNT = 15;
 
 
-addr_mode arg_mode(const char *arg)
+const addr_mode arg_mode(const char *arg)
 {
     if (arg == NULL) {
         return NONE;
@@ -62,34 +62,41 @@ addr_mode arg_mode(const char *arg)
     }
 }
 
-addr_mode args_mode(const char *arg1, const char *arg2)
+const addr_mode args_mode(const char *arg1, const char *arg2)
 {
     const addr_mode arg1_mode = arg_mode(arg1);
     const addr_mode arg2_mode = arg_mode(arg2);
 
-    if (arg1_mode == NONE && arg2_mode == NONE) {
-        return NONE;
-    } else if (arg1_mode == IMM && arg2_mode == NONE) {
-        return IMM;
-    } else if (arg1_mode == REG && arg2_mode == NONE) {
-        return REG;
-    } else if (arg1_mode == IMM && arg2_mode == IMM) {
-        return IMM_IMM;
-    } else if (arg1_mode == IMM && arg2_mode == REG) {
-        return IMM_REG;
-    } else if (arg1_mode == REG && arg2_mode == IMM) {
-        return REG_IMM;
-    } else if (arg1_mode == REG && arg2_mode == REG) {
-        return REG_REG;
-    } else {
-        printf("vcpu fatal error: illegal argument combination %s,%s\n",
-               arg1, arg2);
-        exit(1);
+    switch (arg1_mode) {
+        case NONE:
+            switch(arg2_mode) {
+                case NONE: return NONE;
+                default: break;
+            }
+        case IMM:
+            switch(arg2_mode) {
+                case NONE: return IMM;
+                case IMM: return IMM_IMM;
+                case REG: return IMM_REG;
+                default: break;
+            }
+        case REG:
+            switch(arg2_mode) {
+                case NONE: return REG;
+                case IMM: return REG_IMM;
+                case REG: return REG_REG;
+                default: break;
+            }
+        default:
+            break;
     }
+
+    printf("unexpected address mode: %s %s\n", arg1, arg2);
+    exit(1);
 }
 
-const t_opcode cpu_find_opcode(const char *opcode_str, const char *arg1,
-                               const char *arg2)
+const t_opcode cpu_find_opcode(const char *const opcode_str,
+                               const char *const arg1, const char *const arg2)
 {
     const addr_mode mode = args_mode(arg1, arg2);
     cpu_opcode_decl op;
@@ -108,22 +115,45 @@ const t_opcode cpu_find_opcode(const char *opcode_str, const char *arg1,
         }
     }
 
-    printf("vcpu fatal error: unknown instruction %s[mode:%d]\n", opcode_str, mode);
+    printf("vcpu fatal error: unknown instruction %s[mode:%d]\n",
+           opcode_str, mode);
     exit(1);
 }
 
-void cpu_free(cpu_instr *first)
+void arg_mode_decode_instr(t_oparg *const argp, t_oparg **const regp,
+                           char const *const arg, cpu_state *const state)
+{
+    const addr_mode mode = arg_mode(arg);
+
+    switch (mode) {
+        case NONE:
+            *argp = 0;
+            *regp = NULL;
+            return;
+        case IMM:
+            *argp = atoi(arg);
+            *regp = NULL;
+            return;
+        case REG:
+            *argp = 0;
+            *regp = &state->ans;
+            return;
+        default:
+            printf("vcpu fatal error: decoding illegal mode: %d\n", mode);
+            exit(1);
+    }
+}
+
+void cpu_free(cpu_instr *const first)
 {
     cpu_instr *i;
-    cpu_instr *n;
 
-    for (i = first; i != NULL; i = n) {
-        n = i->next;
+    for (i = first; i != NULL; i = i->next) {
         free(i);
     }
 }
 
-void cpu_reset_free(cpu_state *state)
+void cpu_reset_free(cpu_state *const state)
 {
     cpu_free(state->instr);
 
@@ -132,7 +162,7 @@ void cpu_reset_free(cpu_state *state)
     state->instrp = NULL;
 }
 
-void cpu_exec(cpu_state *state)
+void cpu_exec(cpu_state *const state)
 {
     cpu_instr *instr;
     cpu_opcode_decl op_decl;
@@ -147,48 +177,28 @@ void cpu_exec(cpu_state *state)
     }
 }
 
-const void cpu_opcode(cpu_instr *instr, const char *opcode_str,
-                      const char *arg1, const char *arg2, cpu_state *state)
+const void cpu_opcode(cpu_instr *const instr, const char *const opcode_str,
+                      const char *const arg1, const char *const arg2,
+                      cpu_state *const state)
 {
     const t_opcode opcode = cpu_find_opcode(opcode_str, arg1, arg2);
-    const addr_mode arg1_mode = arg_mode(arg1);
-    const addr_mode arg2_mode = arg_mode(arg2);
 
     instr->opcode = opcode;
     instr->next = NULL;
 
-    if (arg1_mode == NONE) {
-        instr->arg1 = 0;
-        instr->reg1 = NULL;
-    } else if (arg1_mode == IMM) {
-        instr->arg1 = atoi(arg1);
-        instr->reg1 = NULL;
-    } else if (arg1_mode == REG) {
-        instr->arg1 = 0;
-        instr->reg1 = &state->ans;
-    }
-
-    if (arg2_mode == NONE) {
-        instr->arg2 = 0;
-        instr->reg2 = NULL;
-    } else if (arg2_mode == IMM) {
-        instr->arg2 = atoi(arg2);
-        instr->reg2 = NULL;
-    } else if (arg1_mode == REG) {
-        instr->arg2 = 0;
-        instr->reg2 = &state->ans;
-    }
+    arg_mode_decode_instr(&instr->arg1, &instr->reg1, arg1, state);
+    arg_mode_decode_instr(&instr->arg2, &instr->reg2, arg2, state);
 }
 
-const char *cpu_opcode_str(const t_opcode opcode)
-{
-    if (opcode >= OPCODE_COUNT) {
-        printf("vcpu fatal error: illegal opcode %d\n", opcode);
-        exit(1);
-    }
-
-    return OP_TABLE[opcode].code_str;
-}
+//const char *cpu_opcode_str(const t_opcode opcode)
+//{
+//    if (opcode >= OPCODE_COUNT) {
+//        printf("vcpu fatal error: illegal opcode %d\n", opcode);
+//        exit(1);
+//    }
+//
+//    return OP_TABLE[opcode].code_str;
+//}
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
