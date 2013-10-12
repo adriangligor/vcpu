@@ -59,13 +59,15 @@ void shell_stdin()
 int main(const int argc, const char *argv[])
 {
     const char *filename;
-    
+
+    setvbuf(stdout, NULL, _IONBF, 0); // enable auto-flush of stdout
+
     if (argc < 2) {
         printf("usage: %s -\n", argv[0]);
         printf("       %s file.lst\n", argv[0]);
         exit(1);
     }
-    
+
     filename = argv[1];
     if (strncmp(filename, "-", 2) == 0) {
         shell_stdin();
