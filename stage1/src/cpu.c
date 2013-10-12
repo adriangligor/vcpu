@@ -16,7 +16,7 @@
 /**
  * type of a function implementing a vcpu operation
  */
-typedef void (*t_opfunc)(cpu_state *, const t_oparg, const t_oparg);
+typedef void (*const t_opfunc)(cpu_state *const, const t_oparg, const t_oparg);
 
 /**
  * structure representing the definition of a vcpu operation
@@ -38,7 +38,7 @@ const cpu_opcode_decl OP_TABLE[] = {
 const int OPCODE_COUNT = 5;
 
 
-void cpu_reset(cpu_state *state)
+void cpu_reset(cpu_state *const state)
 {
     const cpu_instr nop = { .opcode = 0, .arg1 = 0, .arg2 = 0 };
 
@@ -46,14 +46,14 @@ void cpu_reset(cpu_state *state)
     state->instr = nop;
 }
 
-void cpu_exec(cpu_state *state)
+void cpu_exec(cpu_state *const state)
 {
     cpu_instr instr = state->instr;
     cpu_opcode_decl op_decl = OP_TABLE[instr.opcode];
     op_decl.op_func(state, instr.arg1, instr.arg2);
 }
 
-const t_opcode cpu_opcode(const char *opcode_str)
+const t_opcode cpu_opcode(const char *const opcode_str)
 {
     cpu_opcode_decl op;
     int i;
@@ -69,15 +69,15 @@ const t_opcode cpu_opcode(const char *opcode_str)
     exit(1);
 }
 
-const char *cpu_opcode_str(const t_opcode opcode)
-{
-    if (opcode >= OPCODE_COUNT) {
-        printf("vcpu fatal error: illegal opcode %d\n", opcode);
-        exit(1);
-    }
-
-    return OP_TABLE[opcode].opcode_str;
-}
+//const char *cpu_opcode_str(const t_opcode opcode)
+//{
+//    if (opcode >= OPCODE_COUNT) {
+//        printf("vcpu fatal error: illegal opcode %d\n", opcode);
+//        exit(1);
+//    }
+//
+//    return OP_TABLE[opcode].opcode_str;
+//}
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"

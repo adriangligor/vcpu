@@ -37,22 +37,22 @@ typedef struct cpu_state {
 /**
  * reset the cpu state
  */
-void cpu_reset(cpu_state *state);
+void cpu_reset(cpu_state *const state);
 
 /**
  * execute the instruction
  */
-void cpu_exec(cpu_state *state);
+void cpu_exec(cpu_state *const state);
 
 /**
  * get an opcode from its string mnemonic
  */
-const t_opcode cpu_opcode(const char *opcode_str);
+const t_opcode cpu_opcode(const char *const opcode_str);
 
 /**
  * get the string mnemonic of an opcode
  */
-const char *cpu_opcode_str(t_opcode opcode);
+//const char *cpu_opcode_str(t_opcode opcode);
 
 void cpu_op_nop(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
 void cpu_op_add(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
