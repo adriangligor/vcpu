@@ -18,37 +18,31 @@ void shell_print_state(const cpu_state *state)
 }
 
 /**
- * execute a line from a command listing
+ * execute a line from a command listing or stdin
  */
-void shell_file(const char *filename)
+void shell(const char *filename)
 {
+    FILE *fp;
     cpu_state state;
+
+    if (strncmp(filename, "-", 2) == 0) {
+        fp = stdin;
+    } else {
+        fp = fopen(filename, "r");
+    }
+
+    if (fp != NULL) {
+        printf("reading from file: %s\n", filename);
+    } else {
+        printf("file not found: %s\n", filename);
+        exit(1);
+    }
 
     cpu_reset(&state);
     
-    parse_instr(filename, &state.instr);
+    parse_instr(fp, &state.instr);
     cpu_exec(&state);
     shell_print_state(&state);
-
-    return;
-}
-
-/**
- * execute a line from stdin
- */
-void shell_stdin()
-{
-    cpu_state state;
-    char *line = NULL;
-    size_t len = 0;
-
-    while (getline(&line, &len, stdin) != -1) {
-        cpu_reset(&state);
-
-        parse_instr_line(line, &state.instr);
-        cpu_exec(&state);
-        shell_print_state(&state);
-    }
 
     return;
 }
@@ -58,7 +52,7 @@ void shell_stdin()
  */
 int main(const int argc, const char *argv[])
 {
-    const char *filename;
+    const char *filename = argv[1];
 
     setvbuf(stdout, NULL, _IONBF, 0); // enable auto-flush of stdout
 
@@ -68,12 +62,7 @@ int main(const int argc, const char *argv[])
         exit(1);
     }
 
-    filename = argv[1];
-    if (strncmp(filename, "-", 2) == 0) {
-        shell_stdin();
-    } else {
-        shell_file(filename);
-    }
+    shell(filename);
 
     return(0);
 }

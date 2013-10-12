@@ -8,19 +8,10 @@
 #include <string.h>
 #include "parser.h"
 
-void parse_instr(const char *filename, cpu_instr *instr)
+void parse_instr(FILE *fp, cpu_instr *instr)
 {
-    FILE *fp;
     char *line = NULL;
     size_t len;
-
-    fp = fopen(filename, "r");
-    if (fp == NULL) {
-        printf("file not found: %s\n", filename);
-        exit(1);
-    }
-
-    printf("reading instruction: %s\n", filename);
 
     if (getline(&line, &len, fp) != -1) {
         printf("> %s", line);
@@ -28,7 +19,7 @@ void parse_instr(const char *filename, cpu_instr *instr)
     }
 
     if (ferror(fp)) {
-        printf("error reading file: %s\n", filename);
+        printf("error while reading\n");
         exit(1);
     }
 
