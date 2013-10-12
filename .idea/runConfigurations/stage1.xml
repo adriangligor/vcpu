@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="stage1" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="stage1" PROJECT_NAME="vcpu" TARGET_NAME="stage1" CONFIG_NAME="Debug" PROGRAM_PARAMS="-" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="vcpu" RUN_TARGET_NAME="stage1" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+    <envs />
+    <RunnerSettings RunnerId="AppRunner" />
+    <ConfigurationWrapper RunnerId="AppRunner" />
+    <method />
+  </configuration>
+</component>
