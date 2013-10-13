@@ -7,6 +7,12 @@
 
 
 /**
+ * size of an opcode identifier including \0
+ */
+#define OPCODE_SZ_SIZE 4
+
+
+/**
  * enumeration of addressing modes
  */
 typedef enum addr_mode {
@@ -50,6 +56,32 @@ typedef struct cpu_state {
     cpu_instr *instrp;
 } cpu_state;
 
+/**
+ * type of a function implementing a vcpu operation
+ */
+typedef void (*const t_opfunc)(cpu_state *const, const t_oparg, const t_oparg);
+
+/**
+ * structure representing the definition of a vcpu operation
+ */
+typedef struct cpu_opcode_decl {
+    t_opcode code;
+    char code_str[OPCODE_SZ_SIZE];
+    addr_mode mode;
+    t_opfunc func;
+} cpu_opcode_decl;
+
+
+/**
+ * table containing opcode declarations
+ */
+const cpu_opcode_decl *const OP_TABLE;
+
+/**
+ * number of entries in OP_TABLE
+ */
+const int OPCODE_COUNT;
+
 
 /**
  * reset the cpu state and free instruction memory
@@ -60,35 +92,6 @@ void cpu_reset_free(cpu_state *const state);
  * execute the instruction
  */
 void cpu_exec(cpu_state *const state);
-
-/**
- * fill an instruction from an opcode mnemonic and arguments
- */
-const void cpu_opcode(cpu_instr *const instr, const char *const opcode_str,
-                      const char *const arg1, const char *const arg2,
-                      cpu_state *const state);
-
-/**
- * get the string mnemonic of an opcode
- */
-//const char *cpu_opcode_str(t_opcode opcode);
-
-// forward declarations
-void cpu_op_nop(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_add1(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_add2(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_add3(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_sub1(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_sub2(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_sub3(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_sub4(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_mul1(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_mul2(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_mul3(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_div1(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_div2(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_div3(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
-void cpu_op_div4(cpu_state *state, const t_oparg arg1, const t_oparg arg2);
 
 
 #endif
