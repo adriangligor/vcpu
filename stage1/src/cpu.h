@@ -6,15 +6,18 @@
 #define VCPU_CPU_H
 
 
+#include <stdint.h>
+
+
 /**
  * type of the vcpu representation of an opcode
  */
-typedef unsigned char t_opcode;
+typedef uint8_t t_opcode;
 
 /**
  * type of the vcpu representation of an operation argument
  */
-typedef signed int t_oparg;
+typedef int16_t t_oparg;
 
 /**
  * structure representing a single instruction
@@ -29,7 +32,7 @@ typedef struct cpu_instr {
  * structure representing the whole state of the vcpu
  */
 typedef struct cpu_state {
-    int ans;
+    t_oparg ans;
     cpu_instr instr;
 } cpu_state;
 

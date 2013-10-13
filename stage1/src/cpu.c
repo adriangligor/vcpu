@@ -72,7 +72,7 @@ const t_opcode cpu_opcode(const char *const opcode_str)
 //const char *cpu_opcode_str(const t_opcode opcode)
 //{
 //    if (opcode >= OPCODE_COUNT) {
-//        printf("vcpu fatal error: illegal opcode %d\n", opcode);
+//        printf("vcpu fatal error: illegal opcode %i\n", opcode);
 //        exit(1);
 //    }
 //

@@ -48,6 +48,6 @@ void parse_instr_line(char *line, cpu_instr *instr)
     }
 
     instr->opcode = cpu_opcode(tk_opcode);
-    instr->arg1 = atoi(tk_arg1);
-    instr->arg2 = atoi(tk_arg2);
+    instr->arg1 = (t_oparg) atoi(tk_arg1);
+    instr->arg2 = (t_oparg) atoi(tk_arg2);
 }
