@@ -71,7 +71,9 @@ def main():
 
     tests = find_tests(test_dir)
 
-    for test, status in tests.iteritems():
+    for test in sorted(tests.iterkeys()):
+        status = tests[test]
+
         if status == 2:
             out("test {0}{1:<30}{2}".format(color.TEST, test, color.ENDC))
 
