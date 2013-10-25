@@ -1,0 +1,7 @@
+add 10 15
+sub ans 15
+mul ans 6
+add ans 3
+div ans 3
+div 42 ans
+div ans 1

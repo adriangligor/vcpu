@@ -59,20 +59,30 @@
 		BBBBF68816E95225006885C6 /* test.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test.py; sourceTree = "<group>"; };
 		BBBBF68916E95225006885C6 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		BBBBF69C16E9552F006885C6 /* stage1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stage1; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC58B35478D6A4109F75920F /* calc7.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc7.ans; sourceTree = "<group>"; };
-		BC58BA3CDD5ED531AC160F5A /* calc7.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc7.lst; sourceTree = "<group>"; };
-		C0EA9C8316EBAD83008C0EBF /* calc1.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc1.ans; sourceTree = "<group>"; };
-		C0EA9C8416EBAD83008C0EBF /* calc1.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc1.lst; sourceTree = "<group>"; };
-		C0EA9C8516EBAD83008C0EBF /* calc2.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc2.ans; sourceTree = "<group>"; };
-		C0EA9C8616EBAD83008C0EBF /* calc2.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc2.lst; sourceTree = "<group>"; };
-		C0EA9C8716EBAD83008C0EBF /* calc3.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc3.ans; sourceTree = "<group>"; };
-		C0EA9C8816EBAD83008C0EBF /* calc3.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc3.lst; sourceTree = "<group>"; };
-		C0EA9C8916EBAD83008C0EBF /* calc4.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc4.ans; sourceTree = "<group>"; };
-		C0EA9C8A16EBAD83008C0EBF /* calc4.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc4.lst; sourceTree = "<group>"; };
-		C0EA9C8B16EBAD83008C0EBF /* calc5.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc5.ans; sourceTree = "<group>"; };
-		C0EA9C8C16EBAD83008C0EBF /* calc5.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc5.lst; sourceTree = "<group>"; };
-		C0EA9C8D16EBAD83008C0EBF /* calc6.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc6.ans; sourceTree = "<group>"; };
-		C0EA9C8E16EBAD83008C0EBF /* calc6.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc6.lst; sourceTree = "<group>"; };
+		BC58B01CD7FF8AA71708B424 /* bool02.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = bool02.lst; sourceTree = "<group>"; };
+		BC58B01E492509B565AAE597 /* bool02.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = bool02.ans; sourceTree = "<group>"; };
+		BC58B2F79B7BAF827F637266 /* calc09.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc09.lst; sourceTree = "<group>"; };
+		BC58B35478D6A4109F75920F /* calc07.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc07.ans; sourceTree = "<group>"; };
+		BC58B5514C192D0C529F793B /* calc08.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc08.ans; sourceTree = "<group>"; };
+		BC58B60ECBE66A99ACC10059 /* calc6.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc6.lst; sourceTree = "<group>"; };
+		BC58B70371862D78C07C543B /* calc08.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc08.lst; sourceTree = "<group>"; };
+		BC58B91204AEE0F90249B56A /* calc09.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc09.ans; sourceTree = "<group>"; };
+		BC58B9C7D18A234C7A7C4F69 /* bool01.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = bool01.ans; sourceTree = "<group>"; };
+		BC58BA3CDD5ED531AC160F5A /* calc07.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc07.lst; sourceTree = "<group>"; };
+		BC58BEB8425713582DCDC4FC /* calc6.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc6.ans; sourceTree = "<group>"; };
+		BC58BED89E93B14D941FF9A7 /* bool01.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = bool01.lst; sourceTree = "<group>"; };
+		C0EA9C8316EBAD83008C0EBF /* calc01.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc01.ans; sourceTree = "<group>"; };
+		C0EA9C8416EBAD83008C0EBF /* calc01.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc01.lst; sourceTree = "<group>"; };
+		C0EA9C8516EBAD83008C0EBF /* calc02.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc02.ans; sourceTree = "<group>"; };
+		C0EA9C8616EBAD83008C0EBF /* calc02.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc02.lst; sourceTree = "<group>"; };
+		C0EA9C8716EBAD83008C0EBF /* calc03.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc03.ans; sourceTree = "<group>"; };
+		C0EA9C8816EBAD83008C0EBF /* calc03.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc03.lst; sourceTree = "<group>"; };
+		C0EA9C8916EBAD83008C0EBF /* calc04.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc04.ans; sourceTree = "<group>"; };
+		C0EA9C8A16EBAD83008C0EBF /* calc04.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc04.lst; sourceTree = "<group>"; };
+		C0EA9C8B16EBAD83008C0EBF /* calc05.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc05.ans; sourceTree = "<group>"; };
+		C0EA9C8C16EBAD83008C0EBF /* calc05.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc05.lst; sourceTree = "<group>"; };
+		C0EA9C8D16EBAD83008C0EBF /* calc06.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc06.ans; sourceTree = "<group>"; };
+		C0EA9C8E16EBAD83008C0EBF /* calc06.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc06.lst; sourceTree = "<group>"; };
 		C0EA9C8F16EBAD83008C0EBF /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C0EA9C9116EBAD83008C0EBF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C0EA9C9616EBAD83008C0EBF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -103,12 +113,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB4D28F1180AA28200DFD280 /* stage3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = stage3;
+			sourceTree = "<group>";
+		};
 		BBBBF66616E94FFC006885C6 = {
 			isa = PBXGroup;
 			children = (
 				BBBBF66D16E95225006885C6 /* README.md */,
 				BBBBF66E16E95225006885C6 /* stage1 */,
 				C0EA9C8116EBAD83008C0EBF /* stage2 */,
+				BB4D28F1180AA28200DFD280 /* stage3 */,
 				BBBBF68916E95225006885C6 /* TODO */,
 				BBBBF68F16E954AB006885C6 /* Products */,
 			);
@@ -140,6 +158,8 @@
 				BBBBF67716E95225006885C6 /* calc4.lst */,
 				BBBBF67816E95225006885C6 /* calc5.ans */,
 				BBBBF67916E95225006885C6 /* calc5.lst */,
+				BC58BEB8425713582DCDC4FC /* calc6.ans */,
+				BC58B60ECBE66A99ACC10059 /* calc6.lst */,
 			);
 			path = lst;
 			sourceTree = "<group>";
@@ -189,20 +209,28 @@
 		C0EA9C8216EBAD83008C0EBF /* lst */ = {
 			isa = PBXGroup;
 			children = (
-				C0EA9C8316EBAD83008C0EBF /* calc1.ans */,
-				C0EA9C8416EBAD83008C0EBF /* calc1.lst */,
-				C0EA9C8516EBAD83008C0EBF /* calc2.ans */,
-				C0EA9C8616EBAD83008C0EBF /* calc2.lst */,
-				C0EA9C8716EBAD83008C0EBF /* calc3.ans */,
-				C0EA9C8816EBAD83008C0EBF /* calc3.lst */,
-				C0EA9C8916EBAD83008C0EBF /* calc4.ans */,
-				C0EA9C8A16EBAD83008C0EBF /* calc4.lst */,
-				C0EA9C8B16EBAD83008C0EBF /* calc5.ans */,
-				C0EA9C8C16EBAD83008C0EBF /* calc5.lst */,
-				C0EA9C8D16EBAD83008C0EBF /* calc6.ans */,
-				C0EA9C8E16EBAD83008C0EBF /* calc6.lst */,
-				BC58BA3CDD5ED531AC160F5A /* calc7.lst */,
-				BC58B35478D6A4109F75920F /* calc7.ans */,
+				C0EA9C8316EBAD83008C0EBF /* calc01.ans */,
+				C0EA9C8416EBAD83008C0EBF /* calc01.lst */,
+				C0EA9C8516EBAD83008C0EBF /* calc02.ans */,
+				C0EA9C8616EBAD83008C0EBF /* calc02.lst */,
+				C0EA9C8716EBAD83008C0EBF /* calc03.ans */,
+				C0EA9C8816EBAD83008C0EBF /* calc03.lst */,
+				C0EA9C8916EBAD83008C0EBF /* calc04.ans */,
+				C0EA9C8A16EBAD83008C0EBF /* calc04.lst */,
+				C0EA9C8B16EBAD83008C0EBF /* calc05.ans */,
+				C0EA9C8C16EBAD83008C0EBF /* calc05.lst */,
+				C0EA9C8D16EBAD83008C0EBF /* calc06.ans */,
+				C0EA9C8E16EBAD83008C0EBF /* calc06.lst */,
+				BC58BA3CDD5ED531AC160F5A /* calc07.lst */,
+				BC58B35478D6A4109F75920F /* calc07.ans */,
+				BC58B70371862D78C07C543B /* calc08.lst */,
+				BC58B5514C192D0C529F793B /* calc08.ans */,
+				BC58B2F79B7BAF827F637266 /* calc09.lst */,
+				BC58B91204AEE0F90249B56A /* calc09.ans */,
+				BC58B9C7D18A234C7A7C4F69 /* bool01.ans */,
+				BC58B01CD7FF8AA71708B424 /* bool02.lst */,
+				BC58B01E492509B565AAE597 /* bool02.ans */,
+				BC58BED89E93B14D941FF9A7 /* bool01.lst */,
 			);
 			path = lst;
 			sourceTree = "<group>";

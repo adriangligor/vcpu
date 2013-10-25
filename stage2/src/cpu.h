@@ -6,6 +6,9 @@
 #define VCPU_CPU_H
 
 
+#include <stdint.h>
+
+
 /**
  * size of an opcode identifier including \0
  */
@@ -28,12 +31,12 @@ typedef enum addr_mode {
 /**
  * type of the vcpu representation of an opcode
  */
-typedef unsigned char t_opcode;
+typedef uint8_t t_opcode;
 
 /**
  * type of the vcpu representation of an operation argument
  */
-typedef signed int t_oparg;
+typedef int16_t t_oparg;
 
 /**
  * structure representing a single instruction
@@ -51,7 +54,7 @@ typedef struct cpu_instr {
  * structure representing the whole state of the vcpu
  */
 typedef struct cpu_state {
-    int ans;
+    t_oparg ans;
     cpu_instr *instr;
     cpu_instr *instrp;
 } cpu_state;
@@ -59,7 +62,7 @@ typedef struct cpu_state {
 /**
  * type of a function implementing a vcpu operation
  */
-typedef void (*const t_opfunc)(cpu_state *const, const t_oparg, const t_oparg);
+typedef void (*const t_opfunc)(cpu_state *const, const cpu_instr *const instr);
 
 /**
  * structure representing the definition of a vcpu operation

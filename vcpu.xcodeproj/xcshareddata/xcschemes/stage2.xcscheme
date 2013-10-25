@@ -59,7 +59,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/adriang/Programming/vcpu/stage2/lst/calc7.lst"
+            argument = "-"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

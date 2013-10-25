@@ -32,20 +32,46 @@
         (0x07)   2byte (reg, reg)   
 
     MUL (0x08)   5byte (imm, imm)   multiplication
-        (0x08)   4byte (reg, imm)   (?? how many bits)
-        (0x09)   2byte (reg, reg)   (?? signed/unsigned, overflow)
-    
-    DIV (0x09)   division                   ?
-    MOD (0x0A)   modulo                     ?
-    
-    AND and
-    OR  or
-    XOR exclusive or
-    NOT not
-    
-    SHL shift left
-    SHR shift right
-    
+        (0x09)   4byte (reg, imm)   (?? how many bits)
+        (0x0A)   2byte (reg, reg)   (?? signed/unsigned, overflow)
+
+    DIV (0x0B)   5byte (imm, imm)   division
+        (0x0C)   4byte (imm, reg)   (?? how many bits)
+        (0x0D)   4byte (reg, imm)   (?? signed/unsigned, nan)
+        (0x0E)   2byte (reg, reg)
+
+    MOD (0x0F)   5byte (imm, imm)   modulo
+        (0x10)   4byte (imm, reg)   (?? how many bits)
+        (0x11)   4byte (reg, imm)   (?? signed/unsigned, nan)
+        (0x12)   2byte (reg, reg)
+
+    NOT (0x13)   3byte (imm)        bitwise not
+        (0x14)   2byte (reg)
+
+    AND (0x15)   5byte (imm, imm)   bitwise and
+        (0x16)   4byte (reg, imm)
+        (0x17)   2byte (reg, reg)
+
+    OR  (0x18)   5byte (imm, imm)   bitwise or
+        (0x19)   4byte (reg, imm)
+        (0x1A)   2byte (reg, reg)
+
+    XOR (0x1B)   5byte (imm, imm)   bitwise exclusive or
+        (0x1C)   4byte (reg, imm)
+        (0x1D)   2byte (reg, reg)
+
+    SHL (0x1E)   5byte (imm, imm)   bitwise shift left
+        (0x1F)   4byte (reg, imm)
+        (0x20)   4byte (imm, reg)
+        (0x21)   2byte (reg, reg)
+
+    SHR (0x22)   5byte (imm, imm)   bitwise shift right
+        (0x23)   4byte (reg, imm)
+        (0x24)   4byte (imm, reg)
+        (0x25)   2byte (reg, reg)
+
+
+
     JMP jump
     CMP compare
     JEQ jump if equal
