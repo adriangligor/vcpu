@@ -60,16 +60,19 @@
         (0x1C)   4byte (reg, imm)
         (0x1D)   2byte (reg, reg)
 
-    SHL (0x1E)   5byte (imm, imm)   bitwise shift left
-        (0x1F)   4byte (reg, imm)
-        (0x20)   4byte (imm, reg)
+    SHL (0x1E)   4byte (reg, imm)   bitwise shift left
+        (0x1F)   2byte (reg, reg)
+
+    SHR (0x20)   4byte (reg, imm)   bitwise shift right
         (0x21)   2byte (reg, reg)
 
-    SHR (0x22)   5byte (imm, imm)   bitwise shift right
-        (0x23)   4byte (reg, imm)
-        (0x24)   4byte (imm, reg)
-        (0x25)   2byte (reg, reg)
+    CPR (0x22)   2byte (reg, reg)   copy register value (source, target)
 
+
+
+    STR store to register (?? bytes, words)
+    STM store to memory
+    LDM load from memory
 
 
     JMP jump
@@ -84,9 +87,4 @@
     (a < b) : CMP b a. JGR $dest.
     (a >= b): CMP a b. JGR $dest. JEQ $dest. (or JEQ+JGR)
     (a <= b): CMP b a. JGR $dest. JEQ $dest. (or JEQ+JGR)
-    
-    STR store to register (?? bytes, words)
-    CPR copy register
-    STM store to memory
-    LDM load from memory
 
