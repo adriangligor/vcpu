@@ -2,6 +2,7 @@
  * shell for hosting, controlling and introspecting the vcpu
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,9 +13,13 @@
 /**
  * print the ans register of the vcpu
  */
-void shell_print_state(const cpu_state *state)
+void shell_print_state(const cpu_state *const state, const bool interactive)
 {
-    printf("ans=%d\n", state->ans);
+    if (interactive) {
+        printf("ans = [%hi | %hu | %hXh]\n", state->ans, state->ans, state->ans);
+    } else {
+        printf("ans=%hi\n", state->ans);
+    }
 }
 
 /**
@@ -22,10 +27,11 @@ void shell_print_state(const cpu_state *state)
  */
 void shell(const char *filename)
 {
+    const bool interactive = (strncmp(filename, "-", 2) == 0);
     FILE *fp;
     cpu_state state;
 
-    if (strncmp(filename, "-", 2) == 0) {
+    if (interactive) {
         fp = stdin;
     } else {
         fp = fopen(filename, "r");
@@ -42,7 +48,7 @@ void shell(const char *filename)
 
     parse_file_malloc(fp, &state);
     cpu_exec(&state);
-    shell_print_state(&state);
+    shell_print_state(&state, interactive);
     cpu_reset_free(&state);
 
     return;

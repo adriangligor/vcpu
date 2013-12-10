@@ -85,7 +85,7 @@ void arg_mode_decode_instr(t_oparg *const argp, t_oparg **const regp,
             *regp = NULL;
             return;
         case IMM:
-            *argp = atoi(arg);
+            *argp = (t_oparg) atoi(arg);
             *regp = NULL;
             return;
         case REG:
@@ -93,7 +93,7 @@ void arg_mode_decode_instr(t_oparg *const argp, t_oparg **const regp,
             *regp = &state->ans;
             return;
         default:
-            printf("vcpu fatal error: decoding illegal mode: %d\n", mode);
+            printf("vcpu fatal error: decoding illegal mode: %i\n", mode);
             exit(1);
     }
 }
@@ -118,7 +118,7 @@ const t_opcode find_opcode(const char *const opcode_str,
         }
     }
 
-    printf("vcpu fatal error: unknown instruction %s[mode:%d]\n",
+    printf("vcpu fatal error: unknown instruction %s[mode:%i]\n",
         opcode_str, mode);
     exit(1);
 }
@@ -139,7 +139,7 @@ const void opcode(cpu_instr *const instr, const char *const opcode_str,
 //const char *parse_opcode_str(const t_opcode opcode)
 //{
 //    if (opcode >= OPCODE_COUNT) {
-//        printf("vcpu fatal error: illegal opcode %d\n", opcode);
+//        printf("vcpu fatal error: illegal opcode %i\n", opcode);
 //        exit(1);
 //    }
 //
@@ -158,7 +158,7 @@ cpu_instr *const parse_line_malloc(char *const line, cpu_state *const state)
     tk_arg1 = strtok(NULL, " ");
     tk_arg2 = strtok(NULL, " ");
 
-    if (tk_opcode == NULL || tk_arg1 == NULL || tk_arg2 == NULL) {
+    if (tk_opcode == NULL) {
         printf("error parsing line: %s\n", line);
         exit(1);
     }
@@ -166,10 +166,10 @@ cpu_instr *const parse_line_malloc(char *const line, cpu_state *const state)
     for (i = 0; tk_opcode[i] != '\0'; i++) {
         tk_opcode[i] = (char) toupper(tk_opcode[i]);
     }
-    for (i = 0; tk_arg1[i] != '\0'; i++) {
+    for (i = 0; tk_arg1 != NULL && tk_arg1[i] != '\0'; i++) {
         tk_arg1[i] = (char) toupper(tk_arg1[i]);
     }
-    for (i = 0; tk_arg2[i] != '\0'; i++) {
+    for (i = 0; tk_arg2 != NULL && tk_arg2[i] != '\0'; i++) {
         tk_arg2[i] = (char) toupper(tk_arg2[i]);
     }
 
@@ -192,7 +192,7 @@ void parse_file_malloc(FILE *const fp, cpu_state *const state)
     line_nr = 1;
     while (getline(&line, &len, fp) != -1) {
         chomp(line);
-        printf("%d: %s\n", line_nr, line);
+        printf("%i: %s\n", line_nr, line);
 
         instr = parse_line_malloc(line, state);
         if (state->instr == NULL) {
