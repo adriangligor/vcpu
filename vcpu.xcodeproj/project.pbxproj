@@ -37,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB0ADAC91857B4A900317958 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		BBBBF66D16E95225006885C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		BBBBF67016E95225006885C6 /* calc1.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc1.ans; sourceTree = "<group>"; };
 		BBBBF67116E95225006885C6 /* calc1.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc1.lst; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		BBBBF67716E95225006885C6 /* calc4.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc4.lst; sourceTree = "<group>"; };
 		BBBBF67816E95225006885C6 /* calc5.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc5.ans; sourceTree = "<group>"; };
 		BBBBF67916E95225006885C6 /* calc5.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = calc5.lst; sourceTree = "<group>"; };
-		BBBBF67A16E95225006885C6 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		BBBBF67C16E95225006885C6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BBBBF68116E95225006885C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		BBBBF68316E95225006885C6 /* cpu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpu.c; sourceTree = "<group>"; };
@@ -59,6 +59,9 @@
 		BBBBF68816E95225006885C6 /* test.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test.py; sourceTree = "<group>"; };
 		BBBBF68916E95225006885C6 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		BBBBF69C16E9552F006885C6 /* stage1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stage1; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF67120185A5C7300666B1F /* module.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = module.mk; sourceTree = "<group>"; };
+		BBF67121185A9D5100666B1F /* module.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = module.mk; sourceTree = "<group>"; };
+		BBF67122185A9E1000666B1F /* depend.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = depend.sh; sourceTree = "<group>"; };
 		BC58B01CD7FF8AA71708B424 /* bool02.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = bool02.lst; sourceTree = "<group>"; };
 		BC58B01E492509B565AAE597 /* bool02.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = bool02.ans; sourceTree = "<group>"; };
 		BC58B2F79B7BAF827F637266 /* calc09.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc09.lst; sourceTree = "<group>"; };
@@ -83,7 +86,6 @@
 		C0EA9C8C16EBAD83008C0EBF /* calc05.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc05.lst; sourceTree = "<group>"; };
 		C0EA9C8D16EBAD83008C0EBF /* calc06.ans */ = {isa = PBXFileReference; lastKnownFileType = file.ans; path = calc06.ans; sourceTree = "<group>"; };
 		C0EA9C8E16EBAD83008C0EBF /* calc06.lst */ = {isa = PBXFileReference; lastKnownFileType = file.lst; path = calc06.lst; sourceTree = "<group>"; };
-		C0EA9C8F16EBAD83008C0EBF /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C0EA9C9116EBAD83008C0EBF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C0EA9C9616EBAD83008C0EBF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		C0EA9C9816EBAD83008C0EBF /* cpu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpu.c; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 		BBBBF66616E94FFC006885C6 = {
 			isa = PBXGroup;
 			children = (
+				BBF67122185A9E1000666B1F /* depend.sh */,
+				BB0ADAC91857B4A900317958 /* Makefile */,
 				BBBBF66D16E95225006885C6 /* README.md */,
 				BBBBF66E16E95225006885C6 /* stage1 */,
 				C0EA9C8116EBAD83008C0EBF /* stage2 */,
@@ -136,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				BBBBF66F16E95225006885C6 /* lst */,
-				BBBBF67A16E95225006885C6 /* Makefile */,
+				BBF67120185A5C7300666B1F /* module.mk */,
 				BBBBF67B16E95225006885C6 /* out */,
 				BBBBF68116E95225006885C6 /* README.md */,
 				BBBBF68216E95225006885C6 /* src */,
@@ -197,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				C0EA9C8216EBAD83008C0EBF /* lst */,
-				C0EA9C8F16EBAD83008C0EBF /* Makefile */,
+				BBF67121185A9D5100666B1F /* module.mk */,
 				C0EA9C9016EBAD83008C0EBF /* out */,
 				C0EA9C9616EBAD83008C0EBF /* README.md */,
 				C0EA9C9716EBAD83008C0EBF /* src */,
