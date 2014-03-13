@@ -289,7 +289,7 @@ void cpu_op_shr1(cpu_state *state, const cpu_instr *const instr)
 
 void cpu_op_shr2(cpu_state *state, const cpu_instr *const instr)
 {
-    state->ans = *instr->reg1 >> *instr->reg2;
+    state->ans = (t_oparg) (*instr->reg1 >> *instr->reg2);
 }
 
 void cpu_op_cpr(cpu_state *state, const cpu_instr *const instr)
