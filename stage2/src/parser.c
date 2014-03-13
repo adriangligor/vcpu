@@ -10,7 +10,7 @@
 #include "parser.h"
 
 
-const int chomp(char *const str)
+int chomp(char *const str)
 {
     char *c = str;
 
@@ -30,7 +30,7 @@ const int chomp(char *const str)
     return '\n';
 }
 
-const addr_mode arg_mode(const char *const arg)
+addr_mode arg_mode(const char *const arg)
 {
     if (arg == NULL) {
         return NONE;
@@ -41,7 +41,7 @@ const addr_mode arg_mode(const char *const arg)
     }
 }
 
-const addr_mode args_mode(const char *const arg1, const char *const arg2)
+addr_mode args_mode(const char *const arg1, const char *const arg2)
 {
     const addr_mode arg1_mode = arg_mode(arg1);
     const addr_mode arg2_mode = arg_mode(arg2);
@@ -98,8 +98,8 @@ void arg_mode_decode_instr(t_oparg *const argp, t_oparg **const regp,
     }
 }
 
-const t_opcode find_opcode(const char *const opcode_str,
-                           const char *const arg1, const char *const arg2)
+t_opcode find_opcode(const char *const opcode_str,
+                     const char *const arg1, const char *const arg2)
 {
     const addr_mode mode = args_mode(arg1, arg2);
     cpu_opcode_decl op;
@@ -123,9 +123,9 @@ const t_opcode find_opcode(const char *const opcode_str,
     exit(1);
 }
 
-const void opcode(cpu_instr *const instr, const char *const opcode_str,
-                  const char *const arg1, const char *const arg2,
-                  cpu_state *const state)
+void opcode(cpu_instr *const instr, const char *const opcode_str,
+            const char *const arg1, const char *const arg2,
+            cpu_state *const state)
 {
     const t_opcode opcode = find_opcode(opcode_str, arg1, arg2);
 
@@ -146,7 +146,7 @@ const void opcode(cpu_instr *const instr, const char *const opcode_str,
 //    return OP_TABLE[opcode].code_str;
 //}
 
-cpu_instr *const parse_line_malloc(char *const line, cpu_state *const state)
+cpu_instr *parse_line_malloc(char *const line, cpu_state *const state)
 {
     char *tk_opcode;
     char *tk_arg1;

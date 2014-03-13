@@ -12,6 +12,7 @@ ifneq "$(filter $(MODULE),$(MODULES))" ""
 
   # you can use gcc as well
   CC := clang
+  CFLAGS := -Wall -Wextra -Wconversion -Werror -pedantic
 
   # command for calculating dependencies
   DEPCMD := ./depend.sh

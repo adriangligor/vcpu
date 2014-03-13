@@ -53,7 +53,7 @@ void cpu_exec(cpu_state *const state)
     op_decl.op_func(state, instr.arg1, instr.arg2);
 }
 
-const t_opcode cpu_opcode(const char *const opcode_str)
+t_opcode cpu_opcode(const char *const opcode_str)
 {
     cpu_opcode_decl op;
     int i;

@@ -50,7 +50,7 @@ void cpu_exec(cpu_state *const state);
 /**
  * get an opcode from its string mnemonic
  */
-const t_opcode cpu_opcode(const char *const opcode_str);
+t_opcode cpu_opcode(const char *const opcode_str);
 
 /**
  * get the string mnemonic of an opcode
