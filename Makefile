@@ -1,7 +1,7 @@
 # for debug only
 #_VARS := $(.VARIABLES)
 
-MODULES := stage1 stage2
+MODULES := stage1 stage2 stage3
 MODULE := $(MAKECMDGOALS)
 
 ifneq "$(filter $(MODULE),$(MODULES))" ""
