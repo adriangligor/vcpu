@@ -4,10 +4,6 @@
 MODULES := stage1 stage2
 MODULE := $(MAKECMDGOALS)
 
-.PHONY : clean
-clean :
-	for dir in $(MODULES); do (rm -rfv $$dir/out/*;); done
-
 ifneq "$(filter $(MODULE),$(MODULES))" ""
   $(info building module $(MODULE))
 
@@ -62,6 +58,10 @@ else
 	@echo unknown or unspecified module
 endif
 
+
+.PHONY : clean
+clean :
+	for dir in $(MODULES); do (rm -rfv $$dir/out/*;); done
 
 # for debug only
 #$(foreach v,$(filter-out $(_VARS) _VARS,$(.VARIABLES)),$(info $(v) = $($(v))))
