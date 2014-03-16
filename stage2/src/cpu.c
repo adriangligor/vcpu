@@ -85,19 +85,14 @@ const cpu_opcode_decl *const OP_TABLE = __OP_TABLE__;
 const int OPCODE_COUNT = 35;
 
 
-void cpu_free(cpu_instr *const first)
+void cpu_reset_free(cpu_state *const state)
 {
     cpu_instr *i, *n;
 
-    for (i = first; i != NULL; i = n) {
+    for (i = state->instr; i != NULL; i = n) {
         n = i->next;
         free(i);
     }
-}
-
-void cpu_reset_free(cpu_state *const state)
-{
-    cpu_free(state->instr);
 
     state->ans = 0;
     state->instr = NULL;
