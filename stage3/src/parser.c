@@ -154,6 +154,11 @@ cpu_instr *parse_line_malloc(char *const line, cpu_state *const state)
     int i;
     cpu_instr *instr;
 
+    if (line[0] == ';' || line[0] == '\0') {
+        // empty line or line comment
+        return NULL;
+    }
+
     tk_opcode = strtok(line, " ");
     tk_arg1 = strtok(NULL, " ");
     tk_arg2 = strtok(NULL, " ");
@@ -195,6 +200,12 @@ void parse_file_malloc(FILE *const fp, cpu_state *const state)
         printf("%i: %s\n", line_nr, line);
 
         instr = parse_line_malloc(line, state);
+        line_nr++;
+
+        if (instr == NULL) {
+            continue;
+        }
+
         if (state->instr == NULL) {
             state->instr = instr;
             state->instrp = instr;
@@ -204,8 +215,6 @@ void parse_file_malloc(FILE *const fp, cpu_state *const state)
             prev->next = instr;
         }
         prev = instr;
-
-        line_nr++;
     }
 
     if (ferror(fp)) {
