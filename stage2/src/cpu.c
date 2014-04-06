@@ -42,7 +42,8 @@ void op_shl1(cpu_state *state, const cpu_instr *const instr);
 void op_shl2(cpu_state *state, const cpu_instr *const instr);
 void op_shr1(cpu_state *state, const cpu_instr *const instr);
 void op_shr2(cpu_state *state, const cpu_instr *const instr);
-void op_cpr(cpu_state *state, const cpu_instr *const instr);
+void op_set1(cpu_state *state, const cpu_instr *const instr);
+void op_set2(cpu_state *state, const cpu_instr *const instr);
 
 static const cpu_opcode_decl __OP_TABLE__[] = {
     { .code = 0x00, .code_str = "NOP", .mode = NONE,    .func = &op_nop },
@@ -79,10 +80,11 @@ static const cpu_opcode_decl __OP_TABLE__[] = {
     { .code = 0x1F, .code_str = "SHL", .mode = REG_REG, .func = &op_shl2 },
     { .code = 0x20, .code_str = "SHR", .mode = REG_IMM, .func = &op_shr1 },
     { .code = 0x21, .code_str = "SHR", .mode = REG_REG, .func = &op_shr2 },
-    { .code = 0x22, .code_str = "CPR", .mode = REG_REG, .func = &op_cpr },
+    { .code = 0x22, .code_str = "SET", .mode = REG_IMM, .func = &op_set1 },
+    { .code = 0x23, .code_str = "SET", .mode = REG_REG, .func = &op_set2 },
 };
 const cpu_opcode_decl *const OP_TABLE = __OP_TABLE__;
-const int OPCODE_COUNT = 35;
+const int OPCODE_COUNT = 36;
 
 
 void cpu_reset_free(cpu_state *const state)
@@ -287,7 +289,12 @@ void op_shr2(cpu_state *state, const cpu_instr *const instr)
     state->ans = *instr->reg1 >> *instr->reg2;
 }
 
-void op_cpr(cpu_state *state, const cpu_instr *const instr)
+void op_set1(cpu_state *state, const cpu_instr *const instr)
+{
+    *instr->reg2 = instr->arg2;
+}
+
+void op_set2(cpu_state *state, const cpu_instr *const instr)
 {
     *instr->reg2 = *instr->reg1;
 }

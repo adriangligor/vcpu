@@ -16,7 +16,8 @@
 void shell_print_state(const cpu_state *const state, const bool interactive)
 {
     if (interactive) {
-        printf("ans = [%hi | %hu | %hXh]\n", state->ans, state->ans, state->ans);
+        printf("ans = [%hi | %hu | %hXh]\n",
+            state->ans, state->ans, state->ans);
     } else {
         printf("ans=%hi\n", state->ans);
     }
