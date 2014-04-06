@@ -42,16 +42,24 @@ def find_tests(test_dir):
 
     return tests
 
-def read_ans(test_dir, test):
+def read_expectation(test_dir, test):
     file = os.path.join(test_dir, test + ".ans")
-    lines = open(file, "r").read()
-    return lines.replace("\n", "")
+    lines = []
+
+    for line in open(file, "r").read().splitlines():
+        if line != "" and line[0] != ";":
+            val = line[:len(line) if line.find(";") == -1 else line.find(";")]
+            val = val[:len(line) if val.find(" ") == -1 else val.find(" ")]
+            lines.append(val)
+
+    return tuple(lines) if len(lines) == 2 else (lines[0], None)
 
 def retrieve_ans(stdout):
-    ans_pos = stdout.rfind("\n", 0, -1)
-    last_line = stdout[ans_pos:].replace("\n", "")
-    eq_pos = last_line.find("=")
-    return last_line[eq_pos + 1:]
+    lines = stdout.splitlines()
+    ans_line = lines[-1] if lines[-1].find('ans') >= 0 else lines[-2]
+    flg_line = lines[-1] if lines[-1].find('flg') >= 0 else None
+    return (ans_line[ans_line.find("=") + 1:],
+            flg_line[flg_line.find("=") + 1:] if flg_line is not None else None)
 
 def retrieve_err(stdout):
     ans_pos = stdout.rfind("\n", 0, -1)
@@ -107,13 +115,22 @@ def main():
                 stdout, exit_code = run_test(shell, file)
                 
                 if exit_code == 0:
-                    expected = read_ans(test_dir, test)
-                    actual = retrieve_ans(stdout)
-                    if expected == actual:
+                    exp_ans, exp_flg = read_expectation(test_dir, test)
+                    exp_s_ans = str(int(exp_ans) - 65536)
+                    act_ans, act_flg = retrieve_ans(stdout)
+                    same_ans = exp_ans == act_ans or exp_s_ans == act_ans
+                    same_flg = exp_flg == act_flg or exp_flg is None
+
+                    if same_ans and same_flg:
                         out("[{0}OK{1}]\n".format(color.OKGREEN, color.ENDC))
-                    else:
+                    elif not same_ans:
                         out("[{0}FAIL{1}]  ".format(color.FAIL, color.ENDC))
-                        out("expected {0}, got {1}\n".format(expected, actual))
+                        out("expected ans '{0}' or '{1}', got '{2}'\n"
+                            .format(exp_ans, exp_s_ans, act_ans))
+                    elif not same_flg:
+                        out("[{0}FAIL{1}]  ".format(color.FAIL, color.ENDC))
+                        out("expected flg '{0}', got '{1}'\n"
+                            .format(exp_flg, act_flg))
                 else:
                     err = retrieve_err(stdout)
                     out("[{0}HALT{1}]".format(color.WARNING, color.ENDC))
