@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="stage3" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="stage3" PROJECT_NAME="vcpu" TARGET_NAME="stage3" CONFIG_NAME="Debug" PROGRAM_PARAMS="-" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="vcpu" RUN_TARGET_NAME="stage3" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+    <envs />
+    <method />
+  </configuration>
+</component>

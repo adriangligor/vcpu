@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0EA9CB016ED1A6A008C0EBF"
-               BuildableName = "stage2"
-               BlueprintName = "stage2"
+               BlueprintIdentifier = "BB4758A118D2651D00825D8F"
+               BuildableName = "stage3"
+               BlueprintName = "stage3"
                ReferencedContainer = "container:vcpu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,6 +28,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BB4758A118D2651D00825D8F"
+            BuildableName = "stage3"
+            BlueprintName = "stage3"
+            ReferencedContainer = "container:vcpu.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -41,9 +50,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0EA9CB016ED1A6A008C0EBF"
-            BuildableName = "stage2"
-            BlueprintName = "stage2"
+            BlueprintIdentifier = "BB4758A118D2651D00825D8F"
+            BuildableName = "stage3"
+            BlueprintName = "stage3"
             ReferencedContainer = "container:vcpu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
