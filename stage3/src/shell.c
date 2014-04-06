@@ -9,6 +9,23 @@
 #include "cpu.h"
 #include "parser.h"
 
+/**
+ * convert 
+ */
+static
+const char *byte_to_binary(t_oparg i)
+{
+    static char b[9];
+    char *p = b;
+    int z;
+
+    for (z = 128; z > 0; z >>= 1) {
+        *p++ = (i & z) ? '1' : '0';
+    }
+    *p = '\0';
+
+    return b;
+}
 
 /**
  * print the ans register of the vcpu
@@ -16,9 +33,15 @@
 void shell_print_state(const cpu_state *const state, const bool interactive)
 {
     if (interactive) {
-        printf("ans = [%hi | %hu | %hXh]\n", state->ans, state->ans, state->ans);
+        printf("ans = [%hi | %hu | %hXh]\n"
+               "flg = [%s]\n"
+               "       x...oncz\n",
+               state->ans, state->ans, state->ans,
+               byte_to_binary(state->flags));
     } else {
-        printf("ans=%hi\n", state->ans);
+        printf("ans=%hi\n"
+               "flg=%hu\n",
+               state->ans, state->flags);
     }
 }
 
@@ -30,6 +53,7 @@ void shell(const char *filename)
     const bool interactive = (strncmp(filename, "-", 2) == 0);
     FILE *fp;
     cpu_state state;
+    bool clean_exit;
 
     if (interactive) {
         fp = stdin;
@@ -47,8 +71,16 @@ void shell(const char *filename)
     cpu_reset_free(&state);
 
     parse_file_malloc(fp, &state);
-    cpu_exec(&state);
+    clean_exit = cpu_exec(&state);
     shell_print_state(&state, interactive);
+
+    if (!clean_exit) {
+        if (interactive) {
+            printf("critical error\n");
+        }
+        exit(1);
+    }
+
     cpu_reset_free(&state);
 
     return;
