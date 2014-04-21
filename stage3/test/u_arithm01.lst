@@ -1,0 +1,5 @@
+addu 35000 10000        ; ans=45000
+addu ans   10000        ; ans=55000
+addu ans   ans          ; ans=44464
+
+; result should be 110000, but we flipped and carried

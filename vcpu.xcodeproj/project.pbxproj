@@ -50,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		BB0ADAC91857B4A900317958 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		BB21BA7918FB3F8C00A1DCD6 /* u_arithm03.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = u_arithm03.ans; sourceTree = "<group>"; };
+		BB21BA7A18FB3F8C00A1DCD6 /* u_arithm03.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = u_arithm03.lst; sourceTree = "<group>"; };
 		BB4758A218D2651D00825D8F /* stage3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stage3; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4758B118D266E100825D8F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BB4758B218D266E100825D8F /* cpu.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = cpu.d; sourceTree = "<group>"; };
@@ -66,8 +68,10 @@
 		BB4758BE18D266E100825D8F /* shell.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shell.c; sourceTree = "<group>"; };
 		BB4758E418D266E100825D8F /* module.mk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = module.mk; sourceTree = "<group>"; };
 		BB4758E518D266E100825D8F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		BB4758F318F1C51000825D8F /* s_arithm01.ans */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = s_arithm01.ans; sourceTree = "<group>"; };
-		BB4758F418F1C51000825D8F /* s_arithm01.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = s_arithm01.lst; sourceTree = "<group>"; };
+		BB4758F318F1C51000825D8F /* u_arithm01.ans */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = u_arithm01.ans; sourceTree = "<group>"; };
+		BB4758F418F1C51000825D8F /* u_arithm01.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = u_arithm01.lst; sourceTree = "<group>"; };
+		BB4758F518FAB7A400825D8F /* u_arithm02.ans */ = {isa = PBXFileReference; lastKnownFileType = text; path = u_arithm02.ans; sourceTree = "<group>"; };
+		BB4758F618FAB7A400825D8F /* u_arithm02.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = u_arithm02.lst; sourceTree = "<group>"; };
 		BBBBF66D16E95225006885C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		BBBBF67C16E95225006885C6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BBBBF68116E95225006885C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -207,8 +211,12 @@
 		BB4758BF18D266E100825D8F /* test */ = {
 			isa = PBXGroup;
 			children = (
-				BB4758F318F1C51000825D8F /* s_arithm01.ans */,
-				BB4758F418F1C51000825D8F /* s_arithm01.lst */,
+				BB4758F318F1C51000825D8F /* u_arithm01.ans */,
+				BB4758F418F1C51000825D8F /* u_arithm01.lst */,
+				BB4758F518FAB7A400825D8F /* u_arithm02.ans */,
+				BB4758F618FAB7A400825D8F /* u_arithm02.lst */,
+				BB21BA7918FB3F8C00A1DCD6 /* u_arithm03.ans */,
+				BB21BA7A18FB3F8C00A1DCD6 /* u_arithm03.lst */,
 			);
 			path = test;
 			sourceTree = "<group>";

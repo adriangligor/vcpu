@@ -1,0 +1,2 @@
+mulu 100   200          ; ans=20000
+mulu ans   3            ; ans=60000

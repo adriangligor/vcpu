@@ -1,0 +1,6 @@
+subu 35000 2000         ; ans=33000
+subu ans 3000           ; ans=30000
+subu 40000 ans          ; ans=10000
+subu 5000 ans           ; ans=-5000
+
+; result is -5000 (negative!)
